@@ -6,11 +6,6 @@ import re
 # Third-party libraries
 import pytest
 import pytest_check as check
-import logging
-from appium.webdriver.common.appiumby import AppiumBy
-from selenium.webdriver.support import expected_conditions as EC    
-from selenium.webdriver.support.ui import WebDriverWait
-log = logging.getLogger(__name__)
 
 # Local modules
 from tests.src.pages.login_page import LoginPage
