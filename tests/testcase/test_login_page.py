@@ -108,7 +108,7 @@ def test_apple_login_success_with_session(wd):
 
 
 @pytest.mark.session_none
-def test_apple_login_webview(wd):
+def test_apple_login(wd):
     """기기 내 애플 로그인 세션이 없을 때 애플 로그인 페이지로 이동되는지 확인"""
     page = LoginPage(wd)  # LoginPage 객체 생성
 
