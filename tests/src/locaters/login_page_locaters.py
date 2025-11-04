@@ -2,7 +2,7 @@
 # Login Screen 주요 Locators
 
 # Logo 이미지
-logo_image = "net.bucketplace:id/logoImage"
+logo_image = "net.bucketplace:id/logo"
 
 # Guide 이미지
 guide_image = "net.bucketplace:id/guideImage"
@@ -20,13 +20,13 @@ login_button_facebook = "net.bucketplace:id/facebookLoginButton"
 login_button_apple = "net.bucketplace:id/appleLoginButton"
 
 # 이메일 로그인 버튼
-login_button_email = "net.bucketplace:id/emailLoginButton"
+login_button_email = "net.bucketplace:id/emailLogInText"
 
 # 이메일 회원가입 버튼
-login_button_email_signup = "net.bucketplace:id/signupButton"
+login_button_email_signup = "net.bucketplace:id/emailSignUpText"
 
 # 고객센터 버튼
-login_button_customer_service = "net.bucketplace:id/customerServiceButton"
+login_button_customer_service = "net.bucketplace:id/customerServiceText"
 
 # 비회원 주문 조회 버튼
-login_button_anonymous_order_check = "net.bucketplace:id/anonymousOrderButton"
+login_button_anonymous_order_check = "net.bucketplace:id/anonymousOrderCheck"
