@@ -4,6 +4,7 @@
 import logging
 from datetime import datetime
 from pathlib import Path
+import time
 
 # Third-party libraries
 from appium.webdriver.common.appiumby import AppiumBy
@@ -89,6 +90,7 @@ class LoginPage:
     def click_login_confirm(self):
         """로그인 확인 버튼 클릭"""
         self.wd.find_element(By.ID, "net.bucketplace:id/loginButton").click()
+        time.sleep(2)
         log.info("로그인 버튼 클릭")
 
 
