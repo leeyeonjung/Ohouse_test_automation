@@ -5,5 +5,8 @@ __pycache__/
 *.pyd
 .pytest_cache/
 
+# test_data.py 파일 push하지 않음
+/test_data.py
+
 # 개인 메모용 text 파일 push하지 않음
 /write.txt
