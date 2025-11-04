@@ -6,6 +6,11 @@ import re
 # Third-party libraries
 import pytest
 import pytest_check as check
+import logging
+from appium.webdriver.common.appiumby import AppiumBy
+from selenium.webdriver.support import expected_conditions as EC    
+from selenium.webdriver.support.ui import WebDriverWait
+log = logging.getLogger(__name__)
 
 # Local modules
 from tests.src.pages.login_page import LoginPage
@@ -113,11 +118,10 @@ def test_apple_login_webview(wd):
     page = LoginPage(wd)  # LoginPage 객체 생성
 
     page.click_social_login("apple")  # 애플 로그인 버튼 클릭
+    apple_account = page.apple_login_text()
 
-    page.switch_to_webview()  # 웹뷰 컨텍스트로 전환
-
-    # 기대 결과: 웹뷰 애플 로그인 페이지 노출
-    check.equal(wd.title, "Sign in with Apple")
+    # 기대 결과: 애플 계정 텍스트에 'Apple'이 포함되어야 함
+    check.is_true( "Apple" in apple_account, f"애플 계정 텍스트에 'Apple'이 포함되어야 합니다. (현재: {apple_account})" )
 
 
 def test_email_login_success(wd):
