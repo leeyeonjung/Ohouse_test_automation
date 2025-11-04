@@ -61,6 +61,12 @@ class LoginPage:
         ).click()
         log.info(message)
 
+    
+    def apple_login_text(self):
+        APPLE_ACCOUNT_TEXT_LOCATOR = ( AppiumBy.XPATH, '//com.google.android.material.navigation.NavigationView[@resource-id="ac-localnav"]//*[contains(@text, "Apple")]' )
+        apple_account_text = WebDriverWait(self.wd, 30).until( EC.presence_of_element_located(APPLE_ACCOUNT_TEXT_LOCATOR) )
+        return apple_account_text.text
+
 
     def input_email(self, email):
         """이메일 입력 필드에 이메일 주소 입력
