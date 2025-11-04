@@ -1,0 +1,13 @@
+# Test Framework
+pytest==8.4.2
+pytest-html==4.11
+pytest-check==2.5.3
+
+# Appium & Selenium
+Appium-Python-Client==5.2.4
+selenium==4.35.0
+
+# Image Processing
+Pillow==11.3.0
+numpy==2.3.3
+scikit-image==0.25.2

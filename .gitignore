@@ -1,0 +1,9 @@
+# Python cache 내용 push하지 않음
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# 개인 메모용 text 파일 push하지 않음
+/write.txt
