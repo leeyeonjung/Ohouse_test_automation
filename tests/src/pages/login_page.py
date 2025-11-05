@@ -56,6 +56,7 @@ class LoginPage:
         """
         return self.wd.current_activity
 
+
     def wait_for_main_activity(driver, timeout=10):
         """현재 액티비티가 MainActivity가 될 때까지 최대 10초 대기"""
         WebDriverWait(driver, timeout, 0.5).until(
