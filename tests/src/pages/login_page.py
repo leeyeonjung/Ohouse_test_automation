@@ -39,6 +39,15 @@ class LoginPage:
         return self.wd.capabilities.get("udid")
 
 
+    def get_device_platform(self):
+        """디바이스 platform 반환
+
+        Returns:
+            str: 디바이스의 platform 값 (예: "Android")
+        """
+        return self.wd.capabilities.get("platformName")
+    
+
     def get_current_activity(self):
         """현재 앱의 액티비티 이름 반환
         
@@ -47,9 +56,15 @@ class LoginPage:
         """
         return self.wd.current_activity
 
+    def wait_for_main_activity(driver, timeout=10):
+        """현재 액티비티가 MainActivity가 될 때까지 최대 10초 대기"""
+        WebDriverWait(driver, timeout, 0.5).until(
+            lambda d: "MainActivity" in d.get_current_activity()
+        )
 
-    def click_social_login(self, provider):
-        """소셜 로그인 버튼 클릭
+
+    def click_login(self, provider):
+        """로그인 버튼 클릭
         
         Args:
             provider (str): 로그인 제공자 ("kakao", "naver", "facebook", "apple", "email")
@@ -90,7 +105,6 @@ class LoginPage:
     def click_login_confirm(self):
         """로그인 확인 버튼 클릭"""
         self.wd.find_element(By.ID, "net.bucketplace:id/loginButton").click()
-        time.sleep(2)
         log.info("로그인 버튼 클릭")
 
 
