@@ -166,8 +166,7 @@ pytest --log-cli-level=INFO -v
 ---
 
 ## 📋 Test Cases
-모든 테스트 케이스는  
-`testcase_excel/Ohouse.xlsm` 파일에서 관리됩니다.  
+모든 테스트 케이스는  `testcase_excel/Ohouse.xlsm` 파일에서 관리됩니다.  
 (자동화 구현 여부, 기기 상태, 기대결과 등 포함)
 
 ---
