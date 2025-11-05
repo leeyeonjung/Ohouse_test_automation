@@ -90,12 +90,16 @@ Ohouse_test_automation/
 ### `test_data.py`
 - 실제 로그인에 사용할 **계정 정보**를 별도로 관리합니다.  
 - 보안상의 이유로 `.gitignore`에 등록되어 GitHub에는 포함되지 않습니다.  
+- 저장소 클론 후 `test_data.py.example` 파일을 복사하여 `test_data.py`로 만들고 실제 계정 정보를 입력하세요:
 
-예시:
-```python
-EMAIL = "example@gmail.com"
-PASSWORD = "example123"
+```bash
+# 저장소 클론 후 최초 설정
+cp test_data.py.example test_data.py
+# 또는 Windows PowerShell
+Copy-Item test_data.py.example test_data.py
 ```
+
+그 후 `test_data.py` 파일에 실제 테스트 계정 정보를 입력하세요.
 
 ---
 
@@ -129,7 +133,15 @@ pip install -r requirements.txt
 ```
 
 ### 2️⃣ 테스트 계정 등록
-`test_data.py` 파일에 실제 테스트 계정 정보를 입력합니다.
+1. `test_data.py.example` 파일을 복사하여 `test_data.py` 생성:
+   ```bash
+   # Linux/Mac
+   cp test_data.py.example test_data.py
+   
+   # Windows PowerShell
+   Copy-Item test_data.py.example test_data.py
+   ```
+2. `test_data.py` 파일에 실제 테스트 계정 정보를 입력합니다.
 
 ### 3️⃣ 테스트 실행
 ```bash
@@ -194,6 +206,7 @@ pytest --log-cli-level=INFO -v
 ---
 
 ## 📝 Notes
-- `test_data.py`는 `.gitignore`에 반드시 포함되어야 합니다.  
+- `test_data.py`는 `.gitignore`에 반드시 포함되어 있어 push되지 않습니다.  
+- 저장소 클론 후 `test_data.py.example`를 복사하여 `test_data.py`를 생성하세요.  
 - 테스트 실행 전 Appium Server가 정상 구동 중인지 확인하세요.  
 - Emulator 및 실제 기기 모두에서 실행 가능합니다.  
