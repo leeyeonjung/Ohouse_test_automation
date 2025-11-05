@@ -1,0 +1,78 @@
+"""
+테스트 계정 데이터 관리 파일
+
+⚠️ 주의: 이 파일은 예시 템플릿입니다.
+이 파일을 복사하여 test_data.py로 만들고 실제 계정 정보를 입력하세요.
+
+사용 예시:
+    from test_data import TEST_ACCOUNTS
+    
+    # 이메일 계정 사용
+    email_account = TEST_ACCOUNTS['email'][0]
+    email = email_account['email']
+    password = email_account['password']
+    
+    # 카카오 계정 사용
+    kakao_account = TEST_ACCOUNTS['kakao'][0]
+    kakao_id = kakao_account['id']
+    kakao_password = kakao_account['password']
+"""
+
+# ============================================
+# 실제 테스트 계정 데이터 (여기에 입력하세요)
+# ============================================
+TEST_ACCOUNTS = {
+    'email': [
+        {
+            'name': '유효한 이메일 계정',
+            'email': 'your_email@example.com',
+            'password': 'your_password',
+            'description': '정상 로그인 테스트용 계정'
+        },
+        {
+            'name': '유효하지 않은 이메일 계정',
+            'email': 'invalid_email@example.com',
+            'password': 'your_password',
+            'description': '잘못된 이메일 로그인 실패 테스트용 계정'
+        },
+        {
+            'name': '유효하지 않은 비밀번호 계정',
+            'email': 'your_email@example.com',
+            'password': 'wrong_password',
+            'description': '잘못된 비밀번호 로그인 실패 테스트용 계정'
+        },
+    ],
+    'kakao': [
+        # {
+        #     'name': '계정 이름',
+        #     'id': '카카오 계정 ID',
+        #     'password': '카카오 비밀번호',
+        #     'description': '계정 설명'
+        # },
+    ],
+    'naver': [
+        # {
+        #     'name': '계정 이름',
+        #     'id': '네이버 계정 ID',
+        #     'password': '네이버 비밀번호',
+        #     'description': '계정 설명'
+        # },
+    ],
+    'facebook': [
+        # {
+        #     'name': '계정 이름',
+        #     'email': '페이스북 이메일',
+        #     'password': '페이스북 비밀번호',
+        #     'description': '계정 설명'
+        # },
+    ],
+    'apple': [
+        # {
+        #     'name': '계정 이름',
+        #     'apple_id': '애플 ID',
+        #     'password': '애플 비밀번호',
+        #     'description': '계정 설명'
+        # },
+    ],
+}
+
