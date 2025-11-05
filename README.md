@@ -1,7 +1,7 @@
 # 📱 오늘의집 로그인 테스트 자동화 프로젝트
 ---
 
-*Appium · Python · Pytest 기반의 모바일 로그인 테스트 자동화 구현 과제 (Android 코드 포함)*
+*Appium · Python · Pytest 기반의 모바일 로그인 테스트 자동화 구현 과제 (Android 코드)*
 
 ---
 
@@ -13,18 +13,18 @@
 - 각 테스트 함수의 실행 과정은 **동영상으로 기록**되어 디버깅 및 리포트에 활용됩니다.  
 - **SSIM 기반 이미지 비교**로 UI 요소의 정확성을 검증합니다.  
 - **소셜 로그인 세션 존재 여부**에 따라 테스트를 분리 실행합니다.  
-- **Appium Inspector를 통해 실제 Android 코드 요소를 기반으로 Locator 및 Action 구현**하였습니다.
 ---
 
 ## 🔍 Key Features
 
 ### ✅ **소셜 로그인 테스트**
-- 카카오, 네이버, 페이스북, 애플, 이메일 로그인을 검증합니다.  
+- 카카오, 네이버, 페이스북, 애플, 이메일 로그인을 검증합니다.
+  - 애플 로그인의 경우 iOS에서만 가능하기 때문에 실제 test는 skip 처리 되어있습니다.
 - 세션 존재 여부에 따라 테스트를 구분 (`@pytest.mark.session_exist`, `@pytest.mark.session_none`).
 
 ### ✅ **Pytest 기반 모듈화 구조**
 - `conftest.py`를 통한 **Appium WebDriver 관리 및 공통 fixture 정의**
-- Page Object Model(POM) 패턴 적용  
+- 유지보수 및 코드 재사용성을 위해 Page Object Model(POM) 패턴 적용  
 - 공통 유틸리티(`control_image.py`)를 통한 이미지 비교 로직 모듈화  
 
 ### ✅ **결과 리포트 자동화**
@@ -42,8 +42,8 @@
 ## ⚙️ Tech Stack
 | 구분 | 사용 기술 |
 |------|------------|
-| Test Framework | **Pytest**, **Appium**, **uiautomator2** |
-| Language | **Python 3.x** |
+| Test Framework | **Pytest**, **Appium(3.0.2)**, **uiautomator2** |
+| Language | **Python 3.13.7** |
 | Report | **pytest-html**, **Video Recording** |
 | Device | **Android Emulator / Physical Device** |
 | Image Comparison | **SSIM (scikit-image)** |
@@ -92,7 +92,7 @@ Ohouse_test_automation/
 ### `test_data.py`
 - 실제 로그인에 사용할 **계정 정보**를 별도로 관리합니다.  
 - 보안상의 이유로 `.gitignore`에 등록되어 GitHub에는 포함되지 않습니다.  
-- 저장소 클론 후 `test_data.py.example` 파일을 복사하여 `test_data.py`로 만들고 실제 계정 정보를 입력하세요:
+- 저장소 클론 후 `test_data.py.example` 파일을 복사하여 `test_data.py`로 만들고 실제 계정 정보를 입력하세요
 
 ```bash
 # 저장소 클론 후 최초 설정
@@ -177,7 +177,7 @@ pytest --log-cli-level=INFO -v
 
 ### 🧱 Page Object Model
 - `LoginPage` 클래스는 로그인 화면의 모든 동작(입력, 클릭, 화면 캡처 등)을 캡슐화합니다.  
-- `login_page_locaters.py`는 UI 요소의 locator를 중앙에서 관리합니다.
+- `login_page_locaters.py`는 UI 요소의 locator를 관리하여 유지보수 용이성을 높였습니다.
 
 ### 🖼️ 이미지 비교 (SSIM)
 - `control_image.py`를 통해 기준 이미지와 테스트 캡처를 비교  
@@ -209,5 +209,4 @@ pytest --log-cli-level=INFO -v
 ## 📝 Notes
 - `test_data.py`는 `.gitignore`에 반드시 포함되어 있어 push되지 않습니다.  
 - 저장소 클론 후 `test_data.py.example`를 복사하여 `test_data.py`를 생성하세요.  
-- 테스트 실행 전 Appium Server가 정상 구동 중인지 확인하세요.  
-- Emulator 및 실제 기기 모두에서 실행 가능합니다.  
+- 테스트 실행 전 Appium Server(3 이상)가 정상 구동 중이어야 합니다.
