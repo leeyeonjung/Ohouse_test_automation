@@ -28,7 +28,7 @@
 - 공통 유틸리티(`control_image.py`)를 통한 이미지 비교 로직 모듈화  
 
 ### ✅ **결과 리포트 자동화**
-- 실행 시마다 타임스탬프 기반 폴더(`Result/{실행 시간}/`) 생성  
+- 실행 시마다 타임스탬프 기반 폴더(`tests/Result/{실행 시간}/`) 생성  
   - 📊 **HTML Report** — 테스트 결과 시각화  
   - 🎥 **Video Report** — 실행 과정 자동 녹화  
   - 🖼️ **Image Report** — UI 비교 스크린샷 자동 저장  
@@ -53,9 +53,11 @@
 ## 🏗️ Project Structure
 ```
 Ohouse_test_automation/
-├── test_data.py                              # 테스트 계정 정보 (Git 미포함)
+├── test_data.py.example                      # 테스트 계정 정보 템플릿
 ├── pytest.ini                                # Pytest 설정 및 마커 정의
 ├── requirements.txt                          # 의존성 패키지 목록
+├── testcase_excel/                           # 테스트 케이스 관리 파일
+│   └── Ohouse.xlsm
 │
 ├── tests/
 │   ├── conftest.py                           # WebDriver, Report, Fixture 설정
@@ -73,14 +75,14 @@ Ohouse_test_automation/
 │   │   └── pages/                            # Page Object 정의
 │   │       └── login_page.py
 │   │
-│   └── testcase/                             # 실제 테스트 시나리오
-│       └── test_login_page.py
-│
-└── Result/
-    └── {실행 시간}/
-        ├── image/{device_id}/{test_file}/
-        ├── test-reports/report_{timestamp}.html
-        └── video-reports/{device_id}/{test_file}/
+│   ├── testcase/                             # 실제 테스트 시나리오
+│   │   └── test_login_page.py
+│   │
+│   └── Result/                               # 테스트 실행 결과
+│       └── {실행 시간}/
+│           ├── image/{device_id}/{test_file}/
+│           ├── test-reports/report_{timestamp}.html
+│           └── video-reports/{device_id}/{test_file}/
 ```
 
 ---
@@ -159,9 +161,9 @@ pytest --log-cli-level=INFO -v
 ```
 
 ### 4️⃣ 결과 확인
-- 📊 **HTML Report:** `Result/{실행 시간}/test-reports/report_{timestamp}.html`  
-- 🎥 **Video Report:** `Result/{실행 시간}/video-reports/{device_id}/{테스트 파일명}/`  
-- 🖼️ **Image Report:** `Result/{실행 시간}/image/{테스트 파일명}/{device_id}/login_screen/`  
+- 📊 **HTML Report:** `tests/Result/{실행 시간}/test-reports/report_{timestamp}.html`  
+- 🎥 **Video Report:** `tests/Result/{실행 시간}/video-reports/{device_id}/{테스트 파일명}/`  
+- 🖼️ **Image Report:** `tests/Result/{실행 시간}/image/{device_id}/{테스트 파일명}/login_screen/`  
 
 ---
 
