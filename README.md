@@ -80,7 +80,7 @@ Ohouse_test_automation/
 │   │
 │   └── Result/                               # 테스트 실행 결과
 │       └── {실행 시간}/
-│           ├── image/{device_id}/{test_file}/
+│           ├── image/{device_id}/{test_file}/login_screen/
 │           ├── test-reports/report_{timestamp}.html
 │           └── video-reports/{device_id}/{test_file}/
 ```
